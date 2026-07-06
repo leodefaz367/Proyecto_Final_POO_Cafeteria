@@ -7,6 +7,6 @@ public class Cajero extends Usuario{
 
     @Override
     public String obtenerPermisos() {
-        return "Acceso total: Usuarios, Productos, Ventas y Reportes";
+        return "Acceso: Usuarios, Productos, Ventas";
     }
 }
