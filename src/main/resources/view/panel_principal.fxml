@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.ControladorPanelPrincipal"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorPanelPrincipal">
+   <left>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #1D405E;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblBienvenida" prefHeight="17.0" prefWidth="180.0" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefWidth="52.0" text="Ventas" />
+            <Button mnemonicParsing="false" text="Productos" />
+            <Button fx:id="btnUsuarios" mnemonicParsing="false" text="Usuarios" />
+            <Button fx:id="btnConfiguracion" mnemonicParsing="false" text="Configuración" />
+         </children></VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="113.0" layoutY="183.0" text="Area de Trabajo" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

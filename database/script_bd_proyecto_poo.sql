@@ -42,7 +42,7 @@ CREATE TABLE detalle_venta(
 
 -- DATOS DE PRUEBA
 INSERT INTO usuarios (nombre, correo, clave, rol) VALUES
-                                                      ('Gregory Admin', 'admin@cafe.com', '1234', 'Cajero'),
+                                                      ('Gregory Admin', 'admin@cafe.com', '1234', 'Administrador'),
                                                       ('Leonardo Cajero', 'cajero@cafe.com', '1234', 'Cajero'),
                                                       ('Usuario Reportes', 'reportes@cafe.com', '1234', 'Reportes');
 

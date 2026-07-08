@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.ControladorInicioSesion"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="380.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorInicioSesion">
+    <children>
+        <Label layoutX="122.0" layoutY="114.0" text="Correo Electrónico:" />
+        <Label layoutX="139.0" layoutY="187.0" text="Contraseña:" />
+        <Label layoutX="107.0" layoutY="42.0" text="CAFETERÍA">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtCorreo" layoutX="96.0" layoutY="140.0" />
+        <PasswordField fx:id="txtClave" layoutX="96.0" layoutY="210.0" />
+        <Button layoutX="128.0" layoutY="293.0" mnemonicParsing="false" onAction="#onIniciarSesion" text="Iniciar Sesión" />
+    </children>
 </AnchorPane>
