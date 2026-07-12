@@ -4,9 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="526.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorProductos">
+<AnchorPane prefHeight="515.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorProductos">
     <children>
-
         <TableView fx:id="tvProductos" layoutX="272.0" layoutY="67.0" onMouseClicked="#seleccionarProducto" prefHeight="354.0" prefWidth="477.0">
             <columns>
                 <TableColumn fx:id="colId" prefWidth="40.0" text="ID" />
