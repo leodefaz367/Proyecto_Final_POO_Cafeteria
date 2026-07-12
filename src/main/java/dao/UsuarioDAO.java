@@ -9,6 +9,7 @@ import model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UsuarioDAO implements ICRUD<Usuario>{
@@ -41,25 +42,48 @@ public class UsuarioDAO implements ICRUD<Usuario>{
 
     @Override
     public boolean guardar(Usuario entidad) {
-        // Aquí irá el código SQL INSERT
-        return false;
+        String sql = "INSERT INTO usuarios (nombre, correo, clave, rol) VALUES (?, ?, ?, ?)";
+        try (Connection con = db.Conexion.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, entidad.getNombre());
+            ps.setString(2, entidad.getCorreo());
+            ps.setString(3, entidad.getClave());
+            ps.setString(4, entidad.getRol());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) { return false; }
     }
 
     @Override
     public boolean editar(Usuario entidad) {
-        // Aquí irá el código SQL UPDATE
-        return false;
+        String sql = "UPDATE usuarios SET nombre=?, correo=?, clave=?, rol=? WHERE id_usuario=?";
+        try (Connection con = db.Conexion.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, entidad.getNombre());
+            ps.setString(2, entidad.getCorreo());
+            ps.setString(3, entidad.getClave());
+            ps.setString(4, entidad.getRol());
+            ps.setInt(5, entidad.getIdUsuario());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) { return false; }
     }
 
     @Override
     public boolean eliminar(int id) {
-        // Aquí irá el código SQL DELETE
-        return false;
+        String sql = "DELETE FROM usuarios WHERE id_usuario=?";
+        try (Connection con = db.Conexion.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) { return false; }
     }
 
     @Override
     public List<Usuario> listar() {
-        // Aquí irá el código SQL SELECT
-        return null;
+        List<Usuario> lista = new java.util.ArrayList<>();
+        String sql = "SELECT * FROM usuarios";
+        try (Connection con = db.Conexion.conectar(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                // Usamos la clase hija Administrador genéricamente para listarlos en la tabla
+                lista.add(new model.Administrador(rs.getInt("id_usuario"), rs.getString("nombre"), rs.getString("correo"), rs.getString("clave"), rs.getString("rol"), rs.getBoolean("estado")));
+            }
+        } catch (SQLException e) { e.printStackTrace(); }
+        return lista;
     }
 }

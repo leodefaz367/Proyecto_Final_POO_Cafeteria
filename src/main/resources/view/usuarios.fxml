@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.ControladorUsuarios"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="440.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorUsuarios">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="Gestión de Usuarios">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+        <VBox layoutX="20.0" layoutY="60.0" spacing="20.0">
+            <TextField fx:id="txtNombre" promptText="Nombre completo" />
+            <TextField fx:id="txtCorreo" promptText="Correo" />
+            <TextField fx:id="txtClave" promptText="Contraseña" />
+            <TextField fx:id="txtRol" promptText="Rol (Administrador/Cajero)" />
+            <HBox spacing="10">
+                <Button onAction="#guardar" text="Guardar" />
+                <Button onAction="#eliminar" text="Eliminar" />
+                <Button onAction="#limpiar" text="Limpiar" />
+            </HBox>
+        </VBox>
+        <TableView fx:id="tvUsuarios" layoutX="250.0" layoutY="60.0" onMouseClicked="#seleccionar" prefHeight="350.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" />
+                <TableColumn fx:id="colNombre" prefWidth="120" text="Nombre" />
+                <TableColumn fx:id="colCorreo" prefWidth="120" text="Correo" />
+                <TableColumn fx:id="colRol" text="Rol" />
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>
