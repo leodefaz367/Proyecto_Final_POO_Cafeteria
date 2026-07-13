@@ -10,11 +10,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ControladorProductos {
 
-    @FXML private TextField txtNombre, txtDescripcion, txtPrecio, txtStock, txtCategoria;
-    @FXML private TableView<Producto> tvProductos;
-    @FXML private TableColumn<Producto, Integer> colId, colStock, colCategoria;
-    @FXML private TableColumn<Producto, String> colNombre;
-    @FXML private TableColumn<Producto, Double> colPrecio;
+    @FXML
+    private TextField txtNombre, txtDescripcion, txtPrecio, txtStock, txtCategoria;
+    @FXML
+    private TableView<Producto> tvProductos;
+    @FXML
+    private TableColumn<Producto, Integer> colId, colStock, colCategoria;
+    @FXML
+    private TableColumn<Producto, String> colNombre;
+    @FXML
+    private TableColumn<Producto, Double> colPrecio;
 
     private ProductoDAO productoDAO = new ProductoDAO();
     private Producto productoSeleccionado;

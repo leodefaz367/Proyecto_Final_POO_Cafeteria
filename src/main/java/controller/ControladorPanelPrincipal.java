@@ -41,4 +41,45 @@ public class ControladorPanelPrincipal {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void abrirUsuarios() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/usuarios.fxml"));
+            borderPaneMain.setCenter(loader.load());
+        } catch (Exception e) {
+            System.out.println("Error al cargar Usuarios: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void abrirConfiguracion() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/configuracion.fxml"));
+            borderPaneMain.setCenter(loader.load());
+        } catch (Exception e) {
+            System.out.println("Error al cargar Configuracion: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void abrirReportes() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/reportes.fxml"));
+            borderPaneMain.setCenter(loader.load());
+        } catch (Exception e) {
+            System.out.println("Error al cargar Reportes: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void abrirVentas() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ventas.fxml"));
+            borderPaneMain.setCenter(loader.load());
+        } catch (Exception e) {
+            System.out.println("Error al cargar la pantalla de ventas: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

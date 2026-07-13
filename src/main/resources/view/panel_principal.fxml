@@ -9,10 +9,11 @@
       <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" spacing="30.0" style="-fx-background-color: #1D405E;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="lblBienvenida" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="269.0" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Ventas" />
+            <Button mnemonicParsing="false" onAction="#abrirVentas" prefWidth="100.0" text="Ventas" />
             <Button mnemonicParsing="false" onAction="#abrirProductos" prefWidth="100.0" text="Productos" />
-            <Button fx:id="btnUsuarios" mnemonicParsing="false" prefWidth="100.0" text="Usuarios" />
-            <Button fx:id="btnConfiguracion" mnemonicParsing="false" prefWidth="100.0" text="Configuración" />
+            <Button fx:id="btnUsuarios" mnemonicParsing="false" onAction="#abrirUsuarios" prefWidth="100.0" text="Usuarios" />
+            <Button fx:id="btnConfiguracion" mnemonicParsing="false" onAction="#abrirConfiguracion" prefWidth="100.0" text="Configuración" />
+            <Button mnemonicParsing="false" onAction="#abrirReportes" prefWidth="100.0" text="Reportes" />
          </children></VBox>
    </left>
    <center>
