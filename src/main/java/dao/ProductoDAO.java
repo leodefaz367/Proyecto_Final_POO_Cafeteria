@@ -59,7 +59,8 @@ public class ProductoDAO implements ICRUD<Producto> {
     @Override
     public List<Producto> listar() {
         List<Producto> lista = new ArrayList<>();
-        String sql = "SELECT * FROM productos";
+        String sql = "SELECT p.*, c.nombre AS nombre_categoria FROM productos p " +
+                "INNER JOIN categorias c ON p.id_categoria = c.id_categoria ORDER BY p.id_producto ASC";
         try (Connection con = Conexion.conectar(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 Producto p = new Producto(
@@ -69,7 +70,8 @@ public class ProductoDAO implements ICRUD<Producto> {
                         rs.getDouble("precio"),
                         rs.getInt("stock"),
                         rs.getString("imagen"),
-                        rs.getInt("id_categoria")
+                        rs.getInt("id_categoria"),
+                        rs.getString("nombre_categoria")
                 );
                 lista.add(p);
             }
