@@ -8,8 +8,9 @@ public class Producto {
     private int stock;
     private String imagen;
     private int idCategoria;
+    private String nombreCategoria;
 
-    public Producto(int idProducto, String nombre, String descripcion, double precio, int stock, String imagen, int idCategoria) {
+    public Producto(int idProducto, String nombre, String descripcion, double precio, int stock, String imagen, int idCategoria, String nombreCategoria) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -17,6 +18,7 @@ public class Producto {
         this.stock = stock;
         this.imagen = imagen;
         this.idCategoria = idCategoria;
+        this.nombreCategoria = nombreCategoria;
     }
 
     public int getIdProducto() {
@@ -73,5 +75,18 @@ public class Producto {
 
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
+    }
+
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s ($%.2f)", nombre, precio);
     }
 }

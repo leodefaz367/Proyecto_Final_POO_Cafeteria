@@ -1,24 +1,20 @@
 package model;
 
 public abstract class Usuario {
-    private int idUsuario;
-    private String nombre;
-    private String correo;
-    private String clave;
-    private String rol;
-    private boolean estado;
+    protected int idUsuario;
+    protected String nombre;
+    protected String correo;
+    protected String clave;
+    protected String rol;
+    protected boolean estado;
 
-    public Usuario(int idUsuario, String nombre, String correo, String clave, String rol, boolean estado) {
+    public Usuario(int idUsuario, String nombre, String correo, String clave, String rol) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.correo = correo;
         this.clave = clave;
         this.rol = rol;
-        this.estado = estado;
     }
-
-    // Método abstracto
-    public abstract String obtenerPermisos();
 
     public int getIdUsuario() {
         return idUsuario;
@@ -67,4 +63,6 @@ public abstract class Usuario {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    public abstract String obtenerPermisos();
 }
