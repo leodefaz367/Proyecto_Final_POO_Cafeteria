@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import util.Alertas;
 
 public class ControladorInicioSesion {
 
@@ -24,17 +25,17 @@ public class ControladorInicioSesion {
         String clave = txtClave.getText();
 
         if (correo.isEmpty() || clave.isEmpty()) {
-            mostrarAlerta("Campos incompletos", "Por favor, ingrese su correo y contraseña.", Alert.AlertType.WARNING);
+            Alertas.mostrar("Campos incompletos", "Por favor, ingrese su correo y contraseña.", Alert.AlertType.WARNING);
             return;
         }
 
         UsuarioDAO dao = new UsuarioDAO();
-        Usuario usuarioLogueado = dao.autenticarUsuario(correo, clave);
+        Usuario usuarioLogueado = dao.iniciarSesion(correo, clave);
 
         if (usuarioLogueado != null) {
             abrirDashboard(usuarioLogueado);
         } else {
-            mostrarAlerta("Error de Autenticación", "Correo o contraseña incorrectos, o usuario inactivo.", Alert.AlertType.ERROR);
+            Alertas.mostrar("Error de Autenticación", "Correo o contraseña incorrectos, o usuario inactivo.", Alert.AlertType.ERROR);
         }
     }
 
@@ -43,25 +44,17 @@ public class ControladorInicioSesion {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/panel_principal.fxml"));
             Parent root = loader.load();
 
-            // Pasamos el usuario logueado al siguiente controlador
             ControladorPanelPrincipal controlador = loader.getController();
-            controlador.inicializarDashboard(usuarioLogueado);
+            controlador.inicializarDatos(usuarioLogueado);
 
-            // Cambiamos de ventana
             Stage stage = (Stage) txtCorreo.getScene().getWindow();
+            stage.setTitle("Panel Principal - Sistema de Cafetería");
+            stage.setResizable(false);
             stage.setScene(new Scene(root));
             stage.centerOnScreen();
             stage.show();
         } catch (Exception e) {
-            mostrarAlerta("Error", "No se pudo cargar el panel principal: " + e.getMessage(), Alert.AlertType.ERROR);
+            Alertas.mostrar("Error", "No se pudo cargar el panel principal: " + e.getMessage(), Alert.AlertType.ERROR);
         }
-    }
-
-    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
-        Alert alerta = new Alert(tipo);
-        alerta.setTitle(titulo);
-        alerta.setHeaderText(null);
-        alerta.setContentText(mensaje);
-        alerta.showAndWait();
     }
 }
