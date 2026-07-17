@@ -4,17 +4,58 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="480.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorReportes">
+<AnchorPane prefHeight="525.0" prefWidth="800.0" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorReportes">
     <children>
-        <Label layoutX="20.0" layoutY="20.0" text="Reporte de Inventario Actual">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Label>
-        <TableView fx:id="tvReportes" layoutX="20.0" layoutY="60.0" prefHeight="400.0" prefWidth="660.0">
-            <columns>
-                <TableColumn fx:id="colNombre" prefWidth="331.0" text="Producto" />
-                <TableColumn fx:id="colStock" prefWidth="328.0" text="Unidades Disponibles (Stock)" />
-            </columns>
-        </TableView>
+        <TabPane layoutX="20.0" layoutY="20.0" prefHeight="493.0" prefWidth="760.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Inventario Actual">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="tvReportes" layoutX="10.0" layoutY="14.0" prefHeight="426.0" prefWidth="740.0">
+                                    <columns>
+                                        <TableColumn fx:id="colId" prefWidth="98.0" text=" ID Producto" />
+                                        <TableColumn fx:id="colNombre" prefWidth="258.0" text=" Nombre del Producto" />
+                                        <TableColumn fx:id="colCategoria" prefWidth="196.0" text=" Categoría" />
+                                        <TableColumn fx:id="colStock" prefWidth="187.0" text=" Stock Disponible" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Historial de Ventas">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="440.0" prefWidth="760.0">
+                            <children>
+                                <Label layoutX="14.0" layoutY="7.0" styleClass="titulo" text="Ventas Realizadas:" />
+                                <TableView fx:id="tvVentas" layoutX="15.0" layoutY="42.0" onMouseClicked="#seleccionarVenta" prefHeight="150.0" prefWidth="730.0">
+                                    <columns>
+                                        <TableColumn fx:id="colIdVenta" prefWidth="108.0" text=" ID Venta" />
+                                        <TableColumn fx:id="colFecha" prefWidth="246.0" text=" Fecha y Hora" />
+                                        <TableColumn fx:id="colTotal" prefWidth="175.0" text=" Total General" />
+                                        <TableColumn fx:id="colCajero" prefWidth="200.0" text=" Cajero a cargo" />
+                                    </columns>
+                                </TableView>
+                                <Label layoutX="14.0" layoutY="203.0" styleClass="titulo" text="Detalle de Venta Seleccionada:" />
+                                <Label fx:id="lblClienteInfo" layoutX="14.0" layoutY="235.0" text="Cliente: ">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font></Label>
+                                <TableView fx:id="tvDetalles" layoutX="15.0" layoutY="259.0" prefHeight="184.0" prefWidth="730.0">
+                                    <columns>
+                                        <TableColumn fx:id="colDetIdProd" prefWidth="90.0" text=" ID Producto" />
+                                        <TableColumn fx:id="colDetProducto" prefWidth="300.0" text=" Producto" />
+                                        <TableColumn fx:id="colDetCantidad" prefWidth="110.0" text=" Cantidad" />
+                                        <TableColumn fx:id="colDetPrecio" prefWidth="115.0" text=" Precio Unitario" />
+                                        <TableColumn fx:id="colDetSubtotal" prefWidth="114.0" text=" Subtotal" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
     </children>
 </AnchorPane>

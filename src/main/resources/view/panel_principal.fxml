@@ -4,25 +4,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorPanelPrincipal">
+<BorderPane fx:id="borderPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="1100.0" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControladorPanelPrincipal">
    <left>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" spacing="30.0" style="-fx-background-color: #1D405E;" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="525.0" prefWidth="300.0" spacing="30.0" styleClass="vbox-menu" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblBienvenida" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="269.0" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#abrirVentas" prefWidth="100.0" text="Ventas" />
-            <Button mnemonicParsing="false" onAction="#abrirProductos" prefWidth="100.0" text="Productos" />
-            <Button fx:id="btnUsuarios" mnemonicParsing="false" onAction="#abrirUsuarios" prefWidth="100.0" text="Usuarios" />
-            <Button fx:id="btnConfiguracion" mnemonicParsing="false" onAction="#abrirConfiguracion" prefWidth="100.0" text="Configuración" />
-            <Button mnemonicParsing="false" onAction="#abrirReportes" prefWidth="100.0" text="Reportes" />
-         </children></VBox>
+            <Label fx:id="lblBienvenida" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Button fx:id="btnVentas" mnemonicParsing="false" onAction="#abrirVentas" prefWidth="140.0" text="Ventas" />
+            <Button fx:id="btnReportes" mnemonicParsing="false" onAction="#abrirReportes" prefWidth="140.0" text="Reportes" />
+            <Button fx:id="btnProductos" mnemonicParsing="false" onAction="#abrirProductos" prefWidth="140.0" text="Productos" />
+            <Button fx:id="btnUsuarios" mnemonicParsing="false" onAction="#abrirUsuarios" prefWidth="140.0" text="Usuarios" />
+            <Button fx:id="btnConfiguracion" mnemonicParsing="false" onAction="#abrirConfiguracion" prefWidth="140.0" text="Configuración" />
+            <Button mnemonicParsing="false" onAction="#cerrarSesion" prefWidth="140.0" styleClass="button-danger" text="Cerrar Sesión" />
+         </children>
+      </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="515.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="525.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="325.0" layoutY="243.0" text="Area de Trabajo">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font></Label>
+            <Label layoutX="310.0" layoutY="243.0" styleClass="titulo" text="Área de Trabajo" />
          </children>
       </AnchorPane>
    </center>
