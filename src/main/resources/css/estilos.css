@@ -1,0 +1,250 @@
+/* =======================================================
+   TEMA VISUAL GLOBAL: CAFETERÍA POO
+   Aplica a toda la ventana automáticamente
+   ======================================================= */
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #F4F1EA; /* Beige claro elegante para el fondo general */
+}
+
+/* =======================================================
+   ETIQUETAS (LABELS) Y TEXTOS
+   ======================================================= */
+.label {
+    -fx-text-fill: #3E2723; /* Café muy oscuro por defecto para leer bien */
+}
+
+/* Solo para títulos grandes si decides ponerles la clase style-class="titulo" */
+.titulo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* =======================================================
+   BOTONES (Se aplica a TODOS los botones por defecto)
+   ======================================================= */
+.button {
+    -fx-background-color: #8D6E63; /* Café con leche */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #6D4C41; /* Oscurece al pasar el mouse */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 3);
+}
+
+.button:pressed {
+    -fx-background-color: #5D4037;
+    -fx-translate-y: 2px; /* Efecto de clic */
+    -fx-effect: none;
+}
+
+/* Clase específica para tu botón de "Cerrar Sesión" o "Eliminar" */
+/* En Scene Builder ponle a ese botón style-class="button-danger" */
+.button-danger {
+    -fx-background-color: #D32F2F;
+}
+.button-danger:hover {
+    -fx-background-color: #B71C1C;
+}
+
+/* =======================================================
+   BOTONES DE ÉXITO (Confirmar Venta, Guardar)
+   ======================================================= */
+.button-success {
+    -fx-background-color: #A5D6A7; /* Verde claro pastel (Té Matcha) */
+    -fx-text-fill: #3E2723; /* Texto en café oscuro para que contraste y combine con el tema */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 2);
+}
+
+.button-success:hover {
+    -fx-background-color: #81C784; /* Verde un poco más fuerte al pasar el mouse */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 3);
+}
+
+.button-success:pressed {
+    -fx-background-color: #66BB6A; /* Verde más oscuro al hacer clic */
+    -fx-translate-y: 2px; /* Efecto de hundimiento */
+    -fx-effect: none;
+}
+
+/* =======================================================
+   CAJAS DE TEXTO Y DESPLEGABLES (Inputs)
+   ======================================================= */
+.text-field, .password-field, .combo-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #BCAAA4;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #3E2723;
+}
+
+.text-field:focused, .password-field:focused, .combo-box:focused {
+    -fx-border-color: #5D4037; /* Resalta en café oscuro al escribir */
+    -fx-border-width: 2px;
+}
+
+/* =======================================================
+   PESTAÑAS (TabPane) - Como las de "Inventario" y "Ventas"
+   ======================================================= */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent; /* Quita el gris feo de Windows */
+}
+
+.tab-pane .tab {
+    -fx-background-color: #D7CCC8; /* Pestaña inactiva */
+    -fx-background-radius: 8px 8px 0px 0px;
+    -fx-padding: 5px 15px;
+    -fx-cursor: hand;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #5D4037;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #5D4037; /* Pestaña activa (Café oscuro) */
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white; /* Texto blanco en la pestaña activa */
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: transparent;
+    -fx-border-color: #5D4037; /* Línea que divide las pestañas del contenido */
+    -fx-border-width: 2px 0 0 0;
+}
+
+/* =======================================================
+   TABLAS (TableView) - Cambia todo el aspecto por defecto
+   ======================================================= */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #D7CCC8;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-selection-bar: #A1887F;
+    -fx-selection-bar-non-focused: #D7CCC8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #5D4037; /* Cabecera café oscura */
+    -fx-background-radius: 5px 5px 0px 0px;
+    -fx-padding: 2px;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent transparent transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-alignment: center-left;
+}
+
+.table-row-cell {
+    -fx-border-color: transparent transparent #EFEBE9 transparent; /* Línea sutil entre filas */
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #F4F1EA; /* Color alterno para filas impares */
+}
+
+.table-row-cell:even {
+    -fx-background-color: #FFFFFF; /* Color alterno para filas pares */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #8D6E63; /* Fila seleccionada */
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: white; /* Texto blanco al seleccionar la fila */
+}
+
+/* =======================================================
+   BARRAS DE DESPLAZAMIENTO (ScrollBars)
+   ======================================================= */
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #BCAAA4;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #8D6E63;
+}
+
+/* =======================================================
+   MENÚ LATERAL (VBox)
+   ======================================================= */
+.vbox-menu {
+    -fx-background-color: #3E2723; /* Café muy oscuro, característico de la cafetería */
+    -fx-padding: 20px 15px; /* Espaciado interno para que los botones no toquen los bordes */
+    -fx-spacing: 20px; /* Separación automática entre cada botón del menú */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 2, 0); /* Sombra sutil para dar profundidad */
+}
+
+/* Si quieres que los textos blancos dentro de ese VBox se vean bien por defecto */
+.vbox-menu .label {
+    -fx-text-fill: #FFFFFF;
+}
+
+/* =======================================================
+   PANEL CON TÍTULO (TitledPane) - "Datos del Cliente"
+   ======================================================= */
+.titled-pane > .title {
+    -fx-background-color: #5D4037; /* MISMO café oscuro de la cabecera de la tabla */
+    -fx-background-radius: 5px 5px 0px 0px;
+    -fx-padding: 8px 15px;
+}
+
+.titled-pane > .title .text {
+    -fx-fill: white; /* Texto blanco para que resalte igual que en la tabla */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.titled-pane > .content {
+    -fx-background-color: #FFFFFF; /* Fondo blanco, igual que el interior de la tabla */
+    -fx-border-color: #D7CCC8;
+    -fx-border-width: 1px;
+    -fx-background-radius: 0px 0px 5px 5px;
+    -fx-padding: 15px;
+}
+
+.titled-pane .label {
+    -fx-text-fill: #3E2723;
+}
+
+/* =======================================================
+   ARREGLO DEL FONDO PARA PANTALLAS SECUNDARIAS
+   ======================================================= */
+/* Obliga a que los paneles secundarios (como el de ventas) hereden el beige principal */
+.anchor-pane {
+    -fx-background-color: #F4F1EA;
+}
