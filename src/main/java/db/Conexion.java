@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class Conexion {
 
-    private static final String URL = "jdbc:postgresql://db.crkgqqtubxhtjnptwxgx.supabase.co:5432/postgres";
-    private static final String USER = "postgres";
+    private static final String URL = "jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:6543/postgres";
+    private static final String USER = "postgres.crkgqqtubxhtjnptwxgx";
     private static final String PASSWORD = "Iblame2007**";
 
     public static Connection conectar() {
@@ -19,7 +19,8 @@ public class Conexion {
         } catch (ClassNotFoundException e) {
             System.err.println("Driver de PostgreSQL no encontrado: " + e.getMessage());
         } catch (SQLException e) {
-            System.err.println("Error al conectar a Supabase: " + e.getMessage());
+            e.printStackTrace();
+            //System.err.println("Error al conectar a Supabase: " + e.getMessage());
         }
         return conexion;
     }
